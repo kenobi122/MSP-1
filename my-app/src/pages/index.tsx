@@ -17,7 +17,7 @@ export default function Home() {
       </Head>
       <HeaderComponent></HeaderComponent>
       <main className={styles.main}>
-        <p> here is the first screen </p>
+        <p> here is the first screenxx </p>
       </main>
       <FooterComponent></FooterComponent>
     </>

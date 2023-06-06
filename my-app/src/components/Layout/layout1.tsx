@@ -1,8 +1,14 @@
-import { ReactElement } from "react";
+import { ReactElement, ReactNode } from "react";
 import HeaderComponent from "../Header/header";
 import FooterComponent from "../Footer/footer";
+import { NextPage } from "next";
 
-export default function Layout({ children }: { children: ReactElement }) {
+
+type Props = {
+  children: ReactNode;
+};
+
+export default function Layout1({children} : Props) {
   return (
     <>
       <HeaderComponent></HeaderComponent>

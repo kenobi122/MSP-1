@@ -1,4 +1,4 @@
-package com.app.backend.ulti;
+package com.app.backend.exception;
 
 import com.app.backend.model.common.ErrorCode;
 
@@ -11,10 +11,8 @@ public class AppException extends RuntimeException {
     private static final long serialVersionUID = 1L;
     private ErrorCode errorcode;
 
-    public AppException(String msg, ErrorCode errorcode) {
-        super(msg);
+    public AppException(ErrorCode errorcode) {
         this.errorcode = errorcode;
-
     }
 
 }

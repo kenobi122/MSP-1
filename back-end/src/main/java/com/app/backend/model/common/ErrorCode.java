@@ -12,4 +12,9 @@ public class ErrorCode {
     private HttpStatus statusCode;
     private String message;
     
+    public ErrorCode(HttpStatus statusCode, String message){
+        this.createTime = LocalDateTime.now();
+        this.statusCode = statusCode;
+        this.message = message;
+    }
 }

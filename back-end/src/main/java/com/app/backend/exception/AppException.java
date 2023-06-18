@@ -11,6 +11,11 @@ public class AppException extends RuntimeException {
     private static final long serialVersionUID = 1L;
     private ErrorCode errorcode;
 
+    public AppException(ErrorCode errorcode, Throwable ex) {
+        super(ex);
+        this.errorcode = errorcode;
+    }
+
     public AppException(ErrorCode errorcode) {
         this.errorcode = errorcode;
     }

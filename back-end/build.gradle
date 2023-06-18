@@ -34,9 +34,8 @@ dependencies {
     'io.jsonwebtoken:jjwt-jackson:0.11.5' // or 'io.jsonwebtoken:jjwt-gson:0.11.5' for gson
     // https://mvnrepository.com/artifact/com.dslplatform/dsl-json
     implementation 'com.dslplatform:dsl-json:1.10.0'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
+    implementation 'org.springframework.boot:spring-boot-starter-validation:3.1.0'
 
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
-}

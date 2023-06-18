@@ -9,4 +9,8 @@ public class Response {
         return ResponseEntity.status(status).body(body);
     }
 
+    public static <T> ResponseEntity<T> fail(T body) {
+        return ResponseEntity.status(((ErrorCode) body).getStatusCode()).body(body);
+    }
+
 }

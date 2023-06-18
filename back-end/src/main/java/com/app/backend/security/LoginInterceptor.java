@@ -7,7 +7,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.app.backend.config.JwtProvider;
 import com.app.backend.exception.AppException;
-import com.app.backend.ulti.BusinessException;
+import com.app.backend.ulti.BusinessErrorCode;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -35,12 +35,13 @@ public class LoginInterceptor implements HandlerInterceptor {
         String authorizationHeader = request.getHeader("Authorization");
 
         if (authorizationHeader.isEmpty() || !authorizationHeader.startsWith("Bearer ")) {
-
-            throw new AppException(BusinessException.IVALID_TOKEN);
+       
+            throw new AppException(BusinessErrorCode.IVALID_TOKEN);
         }
 
         if (authorizationHeader.startsWith("Bearer ")) {
             Jws<Claims> claims = jwtProvider.checkJwt(authorizationHeader.substring(7));
+            System.out.println(claims);
         }
 
         return true;

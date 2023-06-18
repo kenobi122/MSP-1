@@ -12,7 +12,7 @@ import com.app.backend.model.request.LoginRequest;
 import com.app.backend.model.response.AccountReponse;
 import com.app.backend.repository.AccountRepository;
 import com.app.backend.service.AccountService;
-import com.app.backend.ulti.BusinessException;
+import com.app.backend.ulti.BusinessErrorCode;
 
 import lombok.RequiredArgsConstructor;
 
@@ -37,7 +37,7 @@ public class AccountServiceImpl implements AccountService {
         account.setEmail(register.getEmail());
 
         if (repository.existsByUsername(account.getUsername())) {
-            throw new AppException(BusinessException.ACCOUNT_ALREADY_EXIST);
+            throw new AppException(BusinessErrorCode.ACCOUNT_ALREADY_EXIST);
         }
         
         repository.save(account);
@@ -47,10 +47,10 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public String login(LoginRequest request) {
         Account account = repository.findByUsername(request.getUsername())
-                .orElseThrow(() -> new AppException(BusinessException.ACCOUNT_NOT_FOUND));
+                .orElseThrow(() -> new AppException(BusinessErrorCode.ACCOUNT_NOT_FOUND));
 
         if (!account.getPassword().equals(request.getPassword())) {
-            throw new AppException(BusinessException.PASSWORD_WRONG);
+            throw new AppException(BusinessErrorCode.PASSWORD_WRONG);
         }
         
 

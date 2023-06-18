@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.app.backend.exception.AppException;
-import com.app.backend.ulti.BusinessException;
+import com.app.backend.ulti.BusinessErrorCode;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -47,9 +47,12 @@ public class JwtProvider {
         Instant expiration = issuaAt.plus(3, ChronoUnit.MINUTES);
 
         Claims claims = Jwts.claims();
+        claims.setId("king");
+        claims.setExpiration(Date.from(expiration));
+        claims.setIssuedAt(Date.from(issuaAt));
+        claims.setSubject(username);
 
-        String jwt = Jwts.builder().setId(username).setClaims(claims).setIssuedAt(Date.from(issuaAt))
-                .setExpiration(Date.from(expiration))
+        String jwt = Jwts.builder().setClaims(claims)
                 .signWith(key).compact();
         return jwt;
 
@@ -61,7 +64,7 @@ public class JwtProvider {
             return claims;
         } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException | SignatureException
                 | IllegalArgumentException ex) {
-            throw new AppException(BusinessException.IVALID_TOKEN);
+            throw new AppException(BusinessErrorCode.IVALID_TOKEN);
         }
     }
 

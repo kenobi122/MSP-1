@@ -27,7 +27,6 @@ public class AccountController {
         this.service = service;
     }
 
-
     @GetMapping("/getAccountList")
     public ResponseEntity<List<Account>> getAccountList() {
         return Response.ok(HttpStatus.OK, service.getList());

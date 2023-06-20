@@ -6,7 +6,6 @@ import java.util.List;
 import com.app.backend.model.entity.Account;
 import com.app.backend.model.request.AccountRegister;
 import com.app.backend.model.request.LoginRequest;
-import com.app.backend.model.response.AccountReponse;
 
 
 public interface AccountService {

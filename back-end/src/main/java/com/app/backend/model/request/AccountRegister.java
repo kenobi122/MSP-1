@@ -12,7 +12,13 @@ public class AccountRegister {
     private String password;
     @NotBlank(message = "{email.notempty}")
     private String email;
-    @NotNull(message = "{age.notempty}")
+    @NotBlank(message = "{name.notempty}")
+    private String name;
+
+    private String surname;
+
+    private String identityCard;
+
     private int age;
 
 }

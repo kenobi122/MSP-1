@@ -1,11 +1,9 @@
 package com.app.backend.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.app.backend.model.common.ResponseWrapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -17,16 +15,15 @@ import com.app.backend.exception.AppException;
 import com.app.backend.model.common.ErrorCode;
 import com.app.backend.model.common.FieldViolation;
 import com.app.backend.model.common.Response;
-import com.app.backend.ulti.BusinessErrorCode;
 
 @RestControllerAdvice
 public class RestController {
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorCode> commonException(Exception ex) {
+    public ResponseEntity<ResponseWrapper> commonException(Exception ex) {
 
-        return ResponseEntity.status(BusinessErrorCode.COMMON_EXCEPTION.getStatusCode())
-                .body(BusinessErrorCode.COMMON_EXCEPTION);
+        return ResponseEntity.internalServerError()
+                .body(ResponseWrapper.Fail(ex.getLocalizedMessage()));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -40,8 +37,8 @@ public class RestController {
     }
 
     @ExceptionHandler(AppException.class)
-    public ResponseEntity<ErrorCode> appExceptionHandler(AppException ex) {
-        return ResponseEntity.status(ex.getErrorcode().getStatusCode()).body(ex.getErrorcode());
+    public ResponseEntity<ResponseWrapper> appExceptionHandler(AppException ex) {
+        return ResponseEntity.status(ex.getErrorcode().getStatusCode()).body(ResponseWrapper.FailOf(ex.getErrorcode()));
     }
 
 }

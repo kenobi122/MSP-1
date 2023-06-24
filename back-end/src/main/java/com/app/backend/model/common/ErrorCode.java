@@ -1,11 +1,10 @@
 package com.app.backend.model.common;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
+import lombok.Data;
 import org.springframework.http.HttpStatus;
 
-import lombok.Data;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 public class ErrorCode<T> {

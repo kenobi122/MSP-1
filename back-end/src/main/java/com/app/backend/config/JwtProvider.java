@@ -52,16 +52,14 @@ public class JwtProvider {
         claims.setIssuedAt(Date.from(issuaAt));
         claims.setSubject(username);
 
-        String jwt = Jwts.builder().setClaims(claims)
+        return Jwts.builder().setClaims(claims)
                 .signWith(key).compact();
-        return jwt;
 
     }
 
     public Jws<Claims> checkJwt(String jwt) {
         try {
-            Jws<Claims> claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt);
-            return claims;
+            return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt);
         } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException | SignatureException
                 | IllegalArgumentException ex) {
             throw new AppException(BusinessErrorCode.IVALID_TOKEN);

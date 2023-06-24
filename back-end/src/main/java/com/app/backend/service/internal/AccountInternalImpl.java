@@ -24,7 +24,6 @@ public class AccountInternalImpl implements AccountInternal {
     private final AccountInfoRepository accountInfoRepository;
 
     @Override
-    @Transactional
     public void accountCreateService(Account account, AccountEmail accountEmail, AccountInfo accountInfo, AccountPassword accountPassword) {
 //        accountRepository.save(account);
         accountEmailRepository.save(accountEmail);

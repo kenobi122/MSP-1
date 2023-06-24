@@ -1,14 +1,13 @@
 package com.app.backend.model.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
-import org.hibernate.Hibernate;
 import org.hibernate.annotations.GenericGenerator;
-
-import java.util.Objects;
 
 @Entity
 @Getter
@@ -23,6 +22,5 @@ public class Account extends BaseEntity {
 
     @Column
     private String username;
-
 
 }

@@ -33,6 +33,9 @@ public class AccountInfo extends BaseEntity {
     @Column
     private String identityCard;
 
+    @Column
+    private boolean delFlg = false;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

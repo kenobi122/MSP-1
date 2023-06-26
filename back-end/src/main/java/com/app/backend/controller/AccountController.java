@@ -1,19 +1,15 @@
 package com.app.backend.controller;
 
-import com.app.backend.model.common.Response;
 import com.app.backend.model.common.ResponseWrapper;
-import com.app.backend.model.entity.Account;
 import com.app.backend.model.request.AccountRegister;
 import com.app.backend.model.request.LoginRequest;
 import com.app.backend.service.AccountService;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/account")
@@ -22,11 +18,6 @@ public class AccountController {
 
     public AccountController(AccountService service) {
         this.service = service;
-    }
-
-    @GetMapping("/getAccountList")
-    public ResponseEntity<List<Account>> getAccountList() {
-        return Response.ok(HttpStatus.OK, service.getList());
     }
 
     @PostMapping("/register")

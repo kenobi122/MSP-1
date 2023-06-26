@@ -23,4 +23,7 @@ public class Account extends BaseEntity {
     @Column
     private String username;
 
+    @Column
+    private boolean delFlg = false;
+
 }

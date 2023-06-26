@@ -22,7 +22,7 @@ public class AccountEmail extends BaseEntity {
     @Column
     private String email;
     @Column
-    private boolean delFlg;
+    private boolean delFlg = false;
 
     @Override
     public boolean equals(Object o) {

@@ -25,7 +25,7 @@ public class AccountPassword extends BaseEntity {
     private String password;
 
     @Column
-    private boolean delFlg;
+    private boolean delFlg = false;
 
     @Override
     public boolean equals(Object o) {

@@ -1,6 +1,6 @@
-import Layout2 from "@/components/Layout/layout2";
 import { NextPage } from "next";
-import Register from "@/components/registerForm";
+import Register from "../components/registerForm";
+import Layout2 from "../components/Layout/layout2";
 
 const Index: NextPage = () => {
 

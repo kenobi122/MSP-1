@@ -4,6 +4,8 @@ import { NextPage } from "next";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 const Register: NextPage = () => {
+
+  
   interface formLogin {
     username: String;
     password: String;
@@ -63,26 +65,28 @@ const Register: NextPage = () => {
     <>
       <p>Account</p>
       <form id="login-form">
-        <label>Username:</label>
+        <label className="">Username:</label>
         <input
           type="text"
           id="username"
           name="username"
           onChange={handleUsernameInput}
+          className="divide-amber-900"
         ></input>
         <br></br>
-        <label>Password:</label>
+        <label className="">Password:</label>
         <input
           type="password"
           id="password"
           name="password"
           onChange={handlePassWordInput}
+          className="divide-amber-900"
         ></input>
         <br></br>
       </form>
-      <button id="login-button" onClick={handleSubmit}>
+      <button id="login-button" className="bg-green-50" onClick={handleSubmit}>
         Submit
-      </button>        
+      </button>
     </>
   )
 };

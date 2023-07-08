@@ -6,11 +6,10 @@ const Index: NextPage = () => {
 
   return (
     <Layout2>
-          <h1 className="text-blue-600/100">Hello, Next.js!</h1>
-
+      <h1 className="text-blue-600/100">Hello, Next.js!</h1>
       <Register></Register>
-
     </Layout2>
+
   );
 };
 

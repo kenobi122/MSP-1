@@ -10,8 +10,11 @@ type Props = {
 const Layout2 = ({ children }: Props) => (
   <>
     <HeaderComponent></HeaderComponent>
-    <main>{children}</main>
-    <FooterComponent></FooterComponent>
+    <main className="bg-pink-50">{children}</main>
+    <section className="bottom-0 absolute">
+      <FooterComponent></FooterComponent>
+    </section>
+
   </>
 );
 
